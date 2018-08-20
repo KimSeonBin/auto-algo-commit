@@ -24,10 +24,10 @@ class GitFiles:
         for file in self.files:
             git_repo.git.add(self.target_path+'/'+file)
         git_repo.git.commit(m=self.__get_commit_message())
-        #git_repo.git.push("origin", "master")
+        git_repo.git.push("origin", "HEAD:master")
         '''
         https://stackoverflow.com/questions/50854924/push-to-remote-repository
         https://gitpython.readthedocs.io/en/stable/tutorial.html
         https://stackoverflow.com/questions/7369145/activating-a-virtualenv-using-a-shell-script-doesnt-seem-to-work
-        
+        파이썬 동작하게 하기 or 실행 스크립트 작성
         '''
