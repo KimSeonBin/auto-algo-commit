@@ -29,5 +29,5 @@ class GitFiles:
         https://stackoverflow.com/questions/50854924/push-to-remote-repository
         https://gitpython.readthedocs.io/en/stable/tutorial.html
         https://stackoverflow.com/questions/7369145/activating-a-virtualenv-using-a-shell-script-doesnt-seem-to-work
-        파이썬 동작하게 하기 or 실행 스크립트 작성
+        실행 스크립트 작성
         '''
