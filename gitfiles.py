@@ -8,11 +8,15 @@ class GitFiles:
     def __init__(self, files, path):
         self.files = files
         self.ori_path = path
-        self.target_path = filepath.get_acmicpc_path()
+        self.backjoon_path = filepath.get_acmicpc_path()
+        self.prog_path = filepath.get_programmers_path()
 
     def copy_files(self):
         for file in self.files:
-            shutil.copy(src=self.ori_path+'/'+file, dst=self.target_path)
+            if file.find('pro') != -1:
+                shutil.copy(src=self.ori_path+'/'+file, dst=self.prog_path)
+            else:
+                shutil.copy(src=self.ori_path+'/'+file, dst=self.backjoon_path)
 
     def __get_commit_message(self):
         today = datetime.now()
@@ -22,7 +26,10 @@ class GitFiles:
         git_repo = Repo(filepath.get_git_repo_path())
 
         for file in self.files:
-            git_repo.git.add(self.target_path+'/'+file)
+            if file.find('pro') != -1:
+                git_repo.git.add(self.prog_path+'/'+file)
+            else:
+                git_repo.git.add(self.backjoon_path+'/'+file)
         git_repo.git.commit(m=self.__get_commit_message())
         git_repo.git.push("origin", "HEAD:master")
         '''

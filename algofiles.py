@@ -12,11 +12,18 @@ class AlgoFiles:
         '''
         앞에 n이 붙어 있으면 아직 다 못 푼 문제.
         현재 날짜와 비교해서 같은 날짜이고 n이 붙어있지 않다면 푼 문제라고 판단
+        디렉토리 제거
+
+        숫자만 붙어있을 시 backjoon online judge
+        앞에 pro가 붙어있을 시 programmers.co.kr
         '''
         if filename[0] is 'n':
             return False
         filename = algopath+"/"+filename
         filetime = datetime.fromtimestamp(os.path.getmtime(filename))
+
+        if os.path.isdir(filename):
+            return False
 
         if self.today.year != filetime.year or \
         self.today.month != filetime.month or \

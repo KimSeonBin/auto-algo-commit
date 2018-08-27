@@ -6,8 +6,9 @@ def start():
     today_files, filepath = algo_files.get_algo_files()
 
     git_files = GitFiles(today_files, filepath)
-    git_files.copy_files()
     print(git_files.files)
+
+    git_files.copy_files()
     git_files.git_commit_push()
 
 
